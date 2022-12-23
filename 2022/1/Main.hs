@@ -11,8 +11,8 @@ split l = snd $ foldr split' ([], []) l
     where
         split' :: String -> ([String], [[String]]) -> ([String], [[String]])
         split' [] ([], r) = ([], r)
-        split' [] (p, r) = ([], p:r)
-        split' s (p, r) = (s:p, r)
+        split' [] (p, r)  = ([], p:r)
+        split' s (p, r)   = (s:p, r)
 
 firstPart :: String -> String
 firstPart = show . maximum . map (sum . map toInt) . split . lines
